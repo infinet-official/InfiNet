@@ -885,7 +885,7 @@ function initAuthForms() {
             const password = document.getElementById('loginPassword').value;
 
             try {
-                // Try remote InfiNet API
+                // Remote InfiNet API
                 const resp = await fetch(`${API_BASE}/auth/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -901,19 +901,15 @@ function initAuthForms() {
                 } else if (data.error) {
                     showAuthError(data.error);
                     return;
+                } else {
+                    showAuthError('Неверный логин или пароль.');
+                    return;
                 }
             } catch (err) {
-                console.log('Remote API not reached, using local secure vault');
+                console.error('Login error:', err);
+                showAuthError('Ошибка подключения к серверу авторизации.');
+                return;
             }
-
-            // Fallback for Github Pages offline/direct use
-            const role = 'player';
-            
-            const savedBal = parseInt(localStorage.getItem('infinet_bal_' + username) || '203');
-            saveSession({ username, role, balance: savedBal, money: savedBal, level: 0, block_points: 0, exp: 0 }, 'local_jwt_demo');
-            closeModal('authModal');
-            showToastMsg(`Вход выполнен! Добро пожаловать, ${username}`);
-            setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
         });
     }
 
@@ -939,16 +935,15 @@ function initAuthForms() {
                 } else if (data.error) {
                     showAuthError(data.error);
                     return;
+                } else {
+                    showAuthError('Ошибка регистрации. Попробуйте другой логин.');
+                    return;
                 }
             } catch (err) {
-                console.log('Remote API not reached');
+                console.error('Registration error:', err);
+                showAuthError('Ошибка подключения к серверу регистрации.');
+                return;
             }
-
-            const role = 'player';
-            saveSession({ username, role, balance: 200, money: 200, level: 0, block_points: 0, exp: 0 }, 'local_jwt_demo');
-            closeModal('authModal');
-            showToastMsg(`Добро пожаловать в InfiNet, ${username}!`);
-            setTimeout(() => { window.location.href = 'dashboard.html'; }, 600);
         });
     }
 }

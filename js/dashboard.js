@@ -32,11 +32,13 @@ let serverDataCache = [];
    BOOT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', async () => {
-    // Auth guard — must be logged in
+    // Auth guard — must be logged in with a valid server token
     currentUser = JSON.parse(localStorage.getItem('infinet_user') || 'null');
     userToken   = localStorage.getItem('infinet_token') || null;
 
-    if (!currentUser || !currentUser.username) {
+    if (!currentUser || !currentUser.username || !userToken || userToken === 'local_jwt_demo') {
+        localStorage.removeItem('infinet_user');
+        localStorage.removeItem('infinet_token');
         window.location.href = 'index.html';
         return;
     }
@@ -102,6 +104,14 @@ async function syncProfileWithServer() {
         const resp = await fetch(`${API_BASE}/user/profile?username=${encodeURIComponent(username)}`, {
             headers
         });
+
+        if (resp.status === 401 || resp.status === 403) {
+            localStorage.removeItem('infinet_user');
+            localStorage.removeItem('infinet_token');
+            alert('Сессия недействительна или завершена. Пожалуйста, выполните вход снова.');
+            window.location.href = 'index.html';
+            return;
+        }
 
         if (resp.ok) {
             const data = await resp.json();
