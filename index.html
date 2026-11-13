@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfiNet — DDNet Servers Portal</title>
+    <meta name="description" content="InfiNet (I/NET) — официальный портал серверов DDraceNetwork. KoG, FNG, Block CLB, Train Gores.">
+    <link rel="icon" type="image/png" href="img/logo.png?v=3.4">
+    <link rel="stylesheet" href="css/style.css?v=4.2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">
+                <img src="img/logo.png?v=3.4" alt="InfiNet Logo" class="nav-logo-img">
+                <span class="nav-logo-text">I/<span>NET</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Главная</a></li>
+                <li><a href="#servers" class="nav-link">Серверы</a></li>
+                <li><a href="#rules" class="nav-link">Правила</a></li>
+                <li><a href="#team" class="nav-link">Команда</a></li>
+                <li><a href="#contacts" class="nav-link">Контакты</a></li>
+            </ul>
+            <div class="nav-user-area" id="navUserArea">
+                <button class="nav-auth-btn" id="openAuthModalBtn">
+                    <i class="fas fa-right-to-bracket"></i> Войти
+                </button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-title">Infi<span>Net</span></h1>
+
+            <p class="hero-subtitle">COMMUNITY</p>
+
+            <p class="hero-description">
+                Лучшие игровые площадки DDNet: King of Gores, FNG, Block CLB и Train Gores.<br>
+                Стабильный пинг, справедливая модерация и активное комьюнити.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#servers" class="btn btn-primary">
+                    <i class="fas fa-gamepad"></i> Выбрать сервер
+                </a>
+                <a href="https://t.me/InfiNet_official" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-telegram"></i> Telegram канал
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" id="serverCount">1</span>
+                    <span class="stat-label">Серверов</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number" id="onlinePlayerCount">1</span>
+                    <span class="stat-label">Общий онлайн</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Режима игры</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <a href="#servers" aria-label="Скролл вниз"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </section>
+
+    <!-- Servers Section -->
+    <section class="section" id="servers">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-server"></i> Наши серверы
+                </h2>
+                <p class="section-subtitle">Кликни по адресу, чтобы мгновенно скопировать IP</p>
+            </div>
+
+            <div class="servers-grid">
+                <!-- Block CLB -->
+                <div class="server-card" data-category="block">
+                    <div class="server-header">
+                        <div class="server-status" title="Проверка статуса..."></div>
+                        <span class="server-badge block">Block</span>
+                    </div>
+                    <h3 class="server-name">InfiNet | I | block clb</h3>
+                    <div class="server-info">
+                        <div class="server-detail">
+                            <i class="fas fa-map"></i>
+                            <span>Карта: <strong>Copy Love Box IN</strong></span>
+                        </div>
+                        <div class="server-detail">
+                            <i class="fas fa-users"></i>
+                            <span class="player-count" data-port="25555">Загрузка...</span>
+                        </div>
+                    </div>
+                    <button class="server-ip" onclick="copyIP('82.148.243.178:25555')">
+                        <i class="fas fa-copy"></i> 82.148.243.178:25555
+                    </button>
+                </div>
+
+                <!-- KoG Servers -->
+                <div class="server-card" data-category="kog">
+                    <div class="server-header">
+                        <div class="server-status" title="Проверка статуса..."></div>
+                        <span class="server-badge kog">KoG</span>
+                    </div>
+                    <h3 class="server-name">InfiNet | I | KoG</h3>
+                    <div class="server-info">
+                        <div class="server-detail">
+                            <i class="fas fa-map"></i>
+                            <span>Карта: <strong>Aip-Gores</strong></span>
+                        </div>
+                        <div class="server-detail">
+                            <i class="fas fa-users"></i>
+                            <span class="player-count" data-port="18358">Загрузка...</span>
+                        </div>
+                    </div>
+                    <button class="server-ip" onclick="copyIP('82.148.243.178:18358')">
+                        <i class="fas fa-copy"></i> 82.148.243.178:18358
+                    </button>
+                </div>
+
+                <div class="server-card" data-category="kog">
+                    <div class="server-header">
+                        <div class="server-status" title="Проверка статуса..."></div>
+                        <span class="server-badge kog">KoG</span>
+                    </div>
+                    <h3 class="server-name">InfiNet | II | KoG</h3>
+                    <div class="server-info">
+                        <div class="server-detail">
+                            <i class="fas fa-map"></i>
+                            <span>Карта: <strong>King_of_Mountains</strong></span>
+                        </div>
+                        <div class="server-detail">
+                            <i class="fas fa-users"></i>
+                            <span class="player-count" data-port="27099">Загрузка...</span>
+                        </div>
+                    </div>
+                    <button class="server-ip" onclick="copyIP('82.148.243.178:27099')">
+                        <i class="fas fa-copy"></i> 82.148.243.178:27099
+                    </button>
+                </div>
+
+                <div class="server-card" data-category="kog">
+                    <div class="server-header">
+                        <div class="server-status" title="Проверка статуса..."></div>
+                        <span class="server-badge kog">KoG</span>
+                    </div>
+                    <h3 class="server-name">InfiNet | III | KoG</h3>
+                    <div class="server-info">
+                        <div class="server-detail">
+                            <i class="fas fa-map"></i>
+                            <span>Карта: <strong>Outer</strong></span>
+                        </div>
+                        <div class="server-detail">
+                            <i class="fas fa-users"></i>
+                            <span class="player-count" data-port="40021">Загрузка...</span>
+                        </div>
+                    </div>
+                    <button class="server-ip" onclick="copyIP('82.148.243.178:40021')">
+                        <i class="fas fa-copy"></i> 82.148.243.178:40021
+                    </button>
+                </div>
+
+                <!-- FNG Servers -->
+                <div class="server-card" data-category="fng">
+                    <div class="server-header">
+                        <div class="server-status" title="Проверка статуса..."></div>
+                        <span class="server-badge fng">FNG</span>
+                    </div>
+                    <h3 class="server-name">InfiNet | I | FNG</h3>
+                    <div class="server-info">
+                        <div class="server-detail">
+                            <i class="fas fa-map"></i>
+                            <span>Карта: <strong>FNGIN</strong></span>
+                        </div>
+                        <div class="server-detail">
+                            <i class="fas fa-users"></i>
+                            <span class="player-count" data-port="40050">Загрузка...</span>
+                        </div>
+                    </div>
+                    <button class="server-ip" onclick="copyIP('82.148.243.178:40050')">
+                        <i class="fas fa-copy"></i> 82.148.243.178:40050
+                    </button>
+                </div>
+
+                <div class="server-card" data-category="fng">
+                    <div class="server-header">
+                        <div class="server-status" title="Проверка статуса..."></div>
+                        <span class="server-badge fng">FNG</span>
+                    </div>
+                    <h3 class="server-name">InfiNet | II | FNG GRENADE</h3>
+                    <div class="server-info">
+                        <div class="server-detail">
+                            <i class="fas fa-map"></i>
+                            <span>Карта: <strong>FNGIN</strong></span>
+                        </div>
+                        <div class="server-detail">
+                            <i class="fas fa-users"></i>
+                            <span class="player-count" data-port="40156">Загрузка...</span>
+                        </div>
+                    </div>
+                    <button class="server-ip" onclick="copyIP('82.148.243.178:40156')">
+                        <i class="fas fa-copy"></i> 82.148.243.178:40156
+                    </button>
+                </div>
+
+                <!-- Train Gores -->
+                <div class="server-card" data-category="train">
+                    <div class="server-header">
+                        <div class="server-status" title="Проверка статуса..."></div>
+                        <span class="server-badge train">Train</span>
+                    </div>
+                    <h3 class="server-name">InfiNet | I | Train Gores/kog</h3>
+                    <div class="server-info">
+                        <div class="server-detail">
+                            <i class="fas fa-map"></i>
+                            <span>Карта: <strong>Тренировка_Gores</strong></span>
+                        </div>
+                        <div class="server-detail">
+                            <i class="fas fa-users"></i>
+                            <span class="player-count" data-port="50014">Загрузка...</span>
+                        </div>
+                    </div>
+                    <button class="server-ip" onclick="copyIP('82.148.243.178:50014')">
+                        <i class="fas fa-copy"></i> 82.148.243.178:50014
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section class="section section-alt" id="rules">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-gavel"></i> Правила серверов
+                </h2>
+                <p class="section-subtitle">Соблюдай порядок, уважай других игроков и играй честно</p>
+            </div>
+
+            <!-- Chat Rules -->
+            <div class="rules-category">
+                <h3 class="rules-category-title"><i class="fas fa-comments"></i> Правила чата</h3>
+                <div class="rules-table">
+                    <div class="rule-row">
+                        <span class="rule-number">1.0</span>
+                        <div class="rule-text">Флуд, спам сообщений</div>
+                        <div class="rule-punishment">
+                            <span class="punishment warn">Предупреждение</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment mute">Mute 60 мин</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">1.1</span>
+                        <div class="rule-text">Оскорбление, неадекватное поведение</div>
+                        <div class="rule-punishment">
+                            <span class="punishment mute">Mute 60 мин</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment mute">Mute 120 мин</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">1.2</span>
+                        <div class="rule-text">Оскорбление администрации или модерации</div>
+                        <div class="rule-punishment">
+                            <span class="punishment mute">Mute 120 мин</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment mute">Mute 240 мин</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment ban">Ban 3 дня</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">1.3</span>
+                        <div class="rule-text">Оскорбление родных</div>
+                        <div class="rule-punishment">
+                            <span class="punishment mute">Mute 300 мин</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment ban">Ban 3 дня</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">1.4</span>
+                        <div class="rule-text">Упоминание родных в негативном ключе</div>
+                        <div class="rule-punishment">
+                            <span class="punishment mute">Mute 300 мин</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment mute">Mute 600 мин</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">1.5</span>
+                        <div class="rule-text">Розжиг межнациональной розни / конфликтов</div>
+                        <div class="rule-punishment">
+                            <span class="punishment mute">Mute 300 мин</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment ban">Ban 3 дня</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">1.6</span>
+                        <div class="rule-text">Провокация игроков</div>
+                        <div class="rule-punishment">
+                            <span class="punishment warn">Предупреждение</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment mute">Mute 120 мин</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">1.7</span>
+                        <div class="rule-text">Провокация модерации / администрации</div>
+                        <div class="rule-punishment">
+                            <span class="punishment mute">Mute 120 мин</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment mute">Mute 240 мин</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- General Rules -->
+            <div class="rules-category">
+                <h3 class="rules-category-title"><i class="fas fa-shield-halved"></i> Общие правила сервера</h3>
+                <div class="rules-table">
+                    <div class="rule-row severe">
+                        <span class="rule-number">2.0</span>
+                        <div class="rule-text">KRX, любой сторонний софт, TAS</div>
+                        <div class="rule-punishment">
+                            <span class="punishment ban">Ban 21 день (36000 мин)</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">2.1</span>
+                        <div class="rule-text">Обход любого наказания</div>
+                        <div class="rule-punishment">
+                            <span class="punishment ban">+3 дня к текущему бану</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">2.2</span>
+                        <div class="rule-text">Несогласованная реклама с администрацией</div>
+                        <div class="rule-punishment">
+                            <span class="punishment ban">Ban 3 дня</span>
+                        </div>
+                    </div>
+                    <div class="rule-row severe">
+                        <span class="rule-number">2.3</span>
+                        <div class="rule-text">Распространение / реклама читов и софта</div>
+                        <div class="rule-punishment">
+                            <span class="punishment ban">Ban 21 день</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">2.4</span>
+                        <div class="rule-text">Оскорбительные ники или клан-теги</div>
+                        <div class="rule-punishment">
+                            <span class="punishment warn">Предупреждение</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment ban">Ban 3 дня</span>
+                        </div>
+                    </div>
+                    <div class="rule-row severe">
+                        <span class="rule-number">2.5</span>
+                        <div class="rule-text">Слив любых личных данных игроков (доксинг)</div>
+                        <div class="rule-punishment">
+                            <span class="punishment ban">Ban 15 дней</span>
+                        </div>
+                    </div>
+                    <div class="rule-row">
+                        <span class="rule-number">2.6</span>
+                        <div class="rule-text">Выдавать себя за Модератора / Администратора</div>
+                        <div class="rule-punishment">
+                            <span class="punishment warn">Предупреждение</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="punishment ban">Ban 7 дней</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-user-astronaut"></i> Администрация &amp; Модерация
+                </h2>
+                <p class="section-subtitle">Команда проекта, обеспечивающая комфортную игру на InfiNet</p>
+            </div>
+
+            <div class="team-grid" id="teamGrid">
+                <!-- Загружается автоматически из панели управления ZeroX (Персонал сайта) -->
+                <div class="server-loading" style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 40px;">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 24px; margin-bottom: 12px; color: var(--accent-cyan);"></i>
+                    <p>Загрузка списка администрации...</p>
+                </div>
+            </div>
+
+            <p class="team-note">
+                <i class="fas fa-info-circle"></i>
+                Хочешь вступить в модерацию? Напиши в наш <a href="https://t.me/InfiNet_official" target="_blank">Telegram канал</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section class="section section-alt" id="contacts">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-paper-plane"></i> Контакты &amp; Связь
+                </h2>
+                <p class="section-subtitle">Присоединяйся к нашему сообществу и следи за новостями</p>
+            </div>
+
+            <div class="contacts-grid">
+                <a href="https://t.me/InfiNet_official" target="_blank" class="contact-card telegram">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Telegram Канал</h3>
+                    <p>Новости, анонсы ивентов, разбаны и общение</p>
+                    <span class="contact-link">@InfiNet_official</span>
+                </a>
+
+                <div class="contact-card server-info-card">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>IP Сети Серверов</h3>
+                    <p>Единый хост для всех серверов InfiNet</p>
+                    <span class="contact-link">82.148.243.178</span>
+                </div>
+
+                <div class="contact-card game">
+                    <i class="fas fa-gamepad"></i>
+                    <h3>Браузер DDNet</h3>
+                    <p>Вбей в поиске серверов клиента</p>
+                    <span class="contact-link">InfiNet</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="img/logo.png?v=3.4" alt="I/NET" class="footer-logo-img">
+                    <span class="footer-logo-text">I/NET</span>
+                </div>
+                <div class="footer-nav">
+                    <a href="#home">Главная</a>
+                    <a href="#servers">Серверы</a>
+                    <a href="#rules">Правила</a>
+                    <a href="#team">Команда</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                <div class="footer-links">
+                    <a href="https://t.me/InfiNet_official" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024&ndash;2026 InfiNet Servers (82.148.243.178). All rights reserved.</p>
+                <a href="#home" class="footer-back-to-top">Наверх &uarr;</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal (Login / Register) -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal-card">
+            <button class="modal-close" onclick="closeModal('authModal')">&times;</button>
+            <div class="modal-tabs">
+                <button class="modal-tab active" id="tabLogin" onclick="switchAuthTab('login')">Вход</button>
+                <button class="modal-tab" id="tabRegister" onclick="switchAuthTab('register')">Регистрация</button>
+            </div>
+
+            <div id="authAlert" class="auth-alert" style="display: none;"></div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="modal-form">
+                <div class="form-group">
+                    <label for="loginUsername">Игровой ник</label>
+                    <input type="text" id="loginUsername" required placeholder="Ваш ник в DDNet">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Пароль</label>
+                    <input type="password" id="loginPassword" required placeholder="Введите пароль">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Войти в аккаунт</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="modal-form" style="display: none;">
+                <div class="form-group">
+                    <label for="regUsername">Игровой ник (от 3 символов)</label>
+                    <input type="text" id="regUsername" required placeholder="Придумайте ник">
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Пароль (от 6 символов)</label>
+                    <input type="password" id="regPassword" required placeholder="Придумайте пароль">
+                </div>
+                <p class="modal-bonus"><i class="fas fa-shield-halved text-cyan"></i> Аккаунт синхронизируется с серверами InfiNet</p>
+                <button type="submit" class="btn btn-primary btn-block">Создать аккаунт</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Copy Notification Toast -->
+    <div class="copy-toast" id="copyToast">
+        <i class="fas fa-check-circle"></i> IP адрес скопирован в буфер!
+    </div>
+
+    <script src="js/cyber-select.js?v=4.2"></script>
+    <script src="js/main.js?v=4.3"></script>
+</body>
+</html>
